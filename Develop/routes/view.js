@@ -1,6 +1,19 @@
-//handles paths for html
+//this file handles paths for html
 
-//excercise
-//stats
+const path = require("path");
 
-// look for html route for a template
+module.exports = function (app) {
+
+app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+});
+
+app.get("/excercise", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/excercise.html"));
+});
+
+app.get("/stats", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/stats.html"));
+});
+
+}
