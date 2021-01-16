@@ -6,18 +6,24 @@
 
 //create, find, update, delete, etc
 
+module.exports = function (app) {
+
+  app.get("/api/workouts", function (req, res) {
+    console.log("hello!!")
+    res.json({});
+  });
 
 
-// Route to post our form submission to mongoDB via mongoose
-app.post("/submit", ({body}, res) => {
+  // Route to post our form submission to mongoDB via mongoose
+  app.post("/submit", ({ body }, res) => {
     // Create a new user using req.body
-  const user = new User(body)
-  
+    const user = new User(body)
+
     // Update this route to run the `setFullName` and `lastUpdatedDate` methods before creating a new User
     user.setFullName()
     user.updateDate()
     // You must create these methods in the model.
-  
+
     User.create(user)
       .then(dbUser => {
         // If saved successfully, send the the new User document to the client
@@ -28,3 +34,6 @@ app.post("/submit", ({body}, res) => {
         res.json(err);
       });
   });
+
+
+}
