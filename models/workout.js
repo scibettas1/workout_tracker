@@ -1,15 +1,3 @@
-//workout schema
-
-//day
-
-//excercise array
-//type
-//name
-//duration
-//reps
-//wieght
-//sets
-//distance
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
