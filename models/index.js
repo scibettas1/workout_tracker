@@ -2,5 +2,5 @@
 
 module.exports = {
     //name of schema
-    workouts: require('./workout')
+    Workouts: require('./Workout')
 }

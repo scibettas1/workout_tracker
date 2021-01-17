@@ -24,6 +24,7 @@ mongoose.connect(
 // =============================================================
 require("./routes/api.js")(app);
 require("./routes/view.js")(app);
+//require("./models/index.js")(app);
 
 
 // Start the server
