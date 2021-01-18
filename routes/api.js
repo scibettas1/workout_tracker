@@ -6,12 +6,11 @@
 
 const mongoose = require("mongoose");
 const db = require("../models");
-
-module.exports = function (app) {
+const router = require("express").Router();
 
 
   // switched "function" to fat arrow => (updated syntax)
-  app.get("/api/workouts", (req, res) => {
+  router.get("/api/workouts", (req, res) => {
     console.log("hello!!")
     //res.json({});
     db.Workouts.find({})
@@ -23,7 +22,7 @@ module.exports = function (app) {
       });
   });
 
-  app.put("/api/workouts/:id", (req, res) => {
+  router.put("/api/workouts/:id", (req, res) => {
     db.Workouts.findOneAndUpdate(
       { _id: req.params.id },
       {
@@ -39,7 +38,7 @@ module.exports = function (app) {
       });
   });
 
-  app.post("/api/workouts", ({ body }, res) => {
+  router.post("/api/workouts", ({ body }, res) => {
     db.Workouts.create(body)
       .then((dbWorkout => {
         res.json(dbWorkout);
@@ -48,7 +47,7 @@ module.exports = function (app) {
       });
   });
 
-app.get("/api/workouts/range", (req, res) => {
+router.get("/api/workouts/range", (req, res) => {
         db.Workouts.find({})
         .then(dbWorkout => {
             res.json(dbWorkout);
@@ -59,4 +58,4 @@ app.get("/api/workouts/range", (req, res) => {
     });
 
 
-}
+module.exports = router;
