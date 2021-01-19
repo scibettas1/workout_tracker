@@ -4,15 +4,13 @@
 //create, find, update, delete, etc
 
 
-const mongoose = require("mongoose");
 const db = require("../models");
 
 module.exports = function (app) {
 
-
   // switched "function" to fat arrow => (updated syntax)
   app.get("/api/workouts", (req, res) => {
-    console.log("hello!!")
+    //console.log("hello!!")
     //res.json({});
     db.Workouts.find({})
       .then(dbWorkout => {
