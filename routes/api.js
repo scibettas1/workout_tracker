@@ -5,16 +5,13 @@
 
 
 const db = require("../models");
-const router = require("express").Router();
 
   // switched "function" to fat arrow => (updated syntax)
-<<<<<<< HEAD
+
+  module.exports = function (app) {
+
   app.get("/api/workouts", (req, res) => {
-    //console.log("hello!!")
-=======
-  router.get("/api/workouts", (req, res) => {
     console.log("hello!!")
->>>>>>> 00a94b0aec031da3624161321eece7040dc6f39f
     //res.json({});
     db.Workouts.find({})
       .then(dbWorkout => {
@@ -25,7 +22,7 @@ const router = require("express").Router();
       });
   });
 
-  router.put("/api/workouts/:id", (req, res) => {
+  app.put("/api/workouts/:id", (req, res) => {
     db.Workouts.findOneAndUpdate(
       { _id: req.params.id },
       {
@@ -41,7 +38,7 @@ const router = require("express").Router();
       });
   });
 
-  router.post("/api/workouts", ({ body }, res) => {
+  app.post("/api/workouts", ({ body }, res) => {
     db.Workouts.create(body)
       .then((dbWorkout => {
         res.json(dbWorkout);
@@ -50,7 +47,7 @@ const router = require("express").Router();
       });
   });
 
-router.get("/api/workouts/range", (req, res) => {
+app.get("/api/workouts/range", (req, res) => {
         db.Workouts.find({})
         .then(dbWorkout => {
             res.json(dbWorkout);
@@ -61,4 +58,4 @@ router.get("/api/workouts/range", (req, res) => {
     });
 
 
-module.exports = router;
+  }
