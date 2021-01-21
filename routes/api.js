@@ -27,7 +27,7 @@ const db = require("../models");
       { _id: req.params.id },
       {
         $inc: { totalDuration: req.body.duration },
-        $push: { workouts: req.body }
+        $push: { exercises: req.body }
       },
       { new: true })
       .then(dbWorkout => {
