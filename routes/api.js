@@ -1,4 +1,4 @@
-// for this stuff: router.post('/api/workouts', (req,res) => {
+
 //most of the logic goes here
 //similar to what we've done in the past, but with mongo syntax
 //create, find, update, delete, etc
